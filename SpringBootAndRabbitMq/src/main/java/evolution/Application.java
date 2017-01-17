@@ -1,4 +1,4 @@
-package hello;
+package evolution;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
