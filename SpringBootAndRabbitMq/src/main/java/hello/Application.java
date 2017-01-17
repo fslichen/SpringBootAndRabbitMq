@@ -44,7 +44,7 @@ public class Application {
     }
 
     @Bean
-    MessageListenerAdapter listenerAdapter(Receiver receiver) {
+    MessageListenerAdapter listenerAdapter(Receiver receiver) {// The bean defined in the listenerAdapter() method is registered as a message listener in the container defined in container().
         return new MessageListenerAdapter(receiver, "receiveMessage");
     }
 
