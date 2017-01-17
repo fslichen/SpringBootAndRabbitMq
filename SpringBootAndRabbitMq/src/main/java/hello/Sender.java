@@ -3,22 +3,21 @@ package hello;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Runner implements CommandLineRunner {
-    private final RabbitTemplate rabbitTemplate;
-    private final Receiver receiver;
-    private final ConfigurableApplicationContext context;
- 
-    public Runner(Receiver receiver, RabbitTemplate rabbitTemplate,
-            ConfigurableApplicationContext context) {
-        this.receiver = receiver;
-        this.rabbitTemplate = rabbitTemplate;
-        this.context = context;
-    }
+public class Sender implements CommandLineRunner {
+	@Autowired
+    private RabbitTemplate rabbitTemplate;
+	
+	@Autowired
+    private Receiver receiver;
+	
+	@Autowired
+    private ConfigurableApplicationContext context;
 
     @Override
     public void run(String... args) throws Exception {
